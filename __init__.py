@@ -1,4 +1,4 @@
-from walletlib.walletlib.error import *
+from shard_lib import *
 
 
 hp = "127.0.0.1:5000"
