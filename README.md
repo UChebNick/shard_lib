@@ -24,9 +24,11 @@ hp = "127.0.0.1:5000"
 Для создания нового кошелька используйте функцию create_wallet:
 
 ```py
-wallet_data = await create_wallet(wallet_type="0.01")
+wallet_data = await create_wallet(wallet_type="0.01") # {'pub': 'AY8rW7PQ3gWWgQW5kbSVAIoaYeUF8KJy', 'priv': 'YLlZm2TJaeCHMYpv8XeIh8h1NryNOxp0'}
 pub = wallet_data['pub']
 priv = wallet_data['priv']
+
+
 ```
 ### Работа с кошельком
 
@@ -43,6 +45,8 @@ wallet = Wallet(pub, priv)
 
 balance = await wallet.get_balance()
 print(f"Баланс: {balance}")
+
+# Баланс: 10000.0
 ```
 #### Отправка средств
 
@@ -54,6 +58,8 @@ to_address = "публичный_ключ_получателя"
 amount = 1.0
 tx_id = await wallet.send_money(to_address, amount)
 print(f"Транзакция: {tx_id}")
+
+# Транзакция: 11e869a0-18c1-4443-ae65-2ab880c8bf23
 ```
 #### Получение списка транзакций
 
@@ -64,6 +70,8 @@ print(f"Транзакция: {tx_id}")
 transactions = await wallet.get_transactions()
 for tx in transactions:
     print(tx)
+
+# {'to': 'OKCs4MPyO3EOhN2d6yYRTNGX7pg3fIxs', 'from': 'AY8rW7PQ3gWWgQW5kbSVAIoaYeUF8KJy', 'amount': 1000.0, 'time': '2024-05-18 12:54:05.611640', 'id': '11e869a0-18c1-4443-ae65-2ab880c8bf23'}
 ```
 
 ## Поддержка и обратная связь
