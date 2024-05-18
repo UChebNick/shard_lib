@@ -1,4 +1,4 @@
-# Async Shard Wallet
+# Async Shard Wallet [En](README.en.md)
 
 Эта библиотека предоставляет асинхронный интерфейс для работы с shard API.
 
