@@ -5,8 +5,7 @@ This library provides an asynchronous interface for working with the shard API.
 
 ## Usage
 
-Import the necessary classes and functions from the library and set the hp (API host) at the beginning of the file:
-
+Import the necessary classes and functions from the library and install hp (API host) at the beginning of the library file:
 '''py
 from async_crypto_wallet import Wallet, create_wallet
 
