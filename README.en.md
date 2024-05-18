@@ -1,5 +1,5 @@
 
-# Async Shard Wallet 
+# Async Shard Wallet ([switch to ru](README.en.md))
 
 This library provides an asynchronous interface for working with the shard API.
 
