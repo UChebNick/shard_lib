@@ -1,5 +1,5 @@
 
-# Async Shard Wallet Library
+# Async Shard Wallet 
 
 This library provides an asynchronous interface for working with cryptocurrency wallets through an API.
 
