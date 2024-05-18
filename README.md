@@ -1,4 +1,4 @@
-# Async Crypto Wallet Library
+# Async Shard Wallet Library
 
 Эта библиотека предоставляет асинхронный интерфейс для работы с криптовалютными кошельками через API.
 
