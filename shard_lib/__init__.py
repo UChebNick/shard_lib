@@ -1,5 +1,5 @@
 from shard_lib import *
-
+from wallet_pay.shard_lib import error
 
 hp = "127.0.0.1:5000"
 
@@ -31,9 +31,9 @@ async def create_wallet(wallet_type="0.01") -> dict:
             if response.status == 200:
                 return {'pub': json_data["pub"], 'priv': json_data["priv"]}
             elif response.status == 500:
-                raise Exception(json_data["error"])
+                raise error.UnknownError(json_data["error"])
             else:
-                raise Exception(f"Неизвестная ошибка: {response.status}")
+                raise error.UnknownError(response.status)
 
 
 
@@ -53,9 +53,9 @@ class Wallet:
                 if response.status == 200:
                     return json_data["balance"]
                 elif response.status == 404:
-                    raise Exception(json_data["error"])
+                    raise error.NonExistentWallet(json_data["error"])
                 else:
-                    raise Exception(f"Неизвестная ошибка: {response.status}")
+                    raise error.UnknownError(response.status)
 
     async def send_money(self, to: str, amount: float):
         # функция для отправки средств
@@ -66,9 +66,9 @@ class Wallet:
                 if response.status == 200:
                     return json_data["id"]
                 elif response.status == 500:
-                    raise Exception(json_data["error"])
+                    raise error.UnknownError(json_data["error"])
                 else:
-                    raise Exception(f"Неизвестная ошибка: {response.status}")
+                    raise error.UnknownError(response.status)
 
     async def get_transactions(self):
         payload = {"pub": self.pub, "priv": self.priv}
@@ -78,6 +78,6 @@ class Wallet:
                 if response.status == 200:
                     return json_data["transactions"]
                 elif response.status == 404:
-                    raise Exception(json_data["error"])
+                    raise error.NonExistentWallet(json_data["error"])
                 else:
-                    raise Exception(f"Неизвестная ошибка: {response.status}")
+                    raise error.NonExistentWallet(response.status)
